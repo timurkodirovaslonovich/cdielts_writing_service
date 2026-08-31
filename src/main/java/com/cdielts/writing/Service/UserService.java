@@ -1,4 +1,4 @@
-package com.cdielts.writing.Service;
+package com.cdielts.writing.service;
 
 import com.cdielts.writing.Dto.UserRequestDto;
 import com.cdielts.writing.Dto.UserResponseDto;

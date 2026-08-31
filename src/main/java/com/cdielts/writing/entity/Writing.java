@@ -60,4 +60,6 @@ public class Writing {
     public void setAnswers(List<WritingAnswer> answers) {
         this.answers = answers;
     }
+
+   
 }
