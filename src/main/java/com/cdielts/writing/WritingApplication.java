@@ -8,7 +8,7 @@ public class WritingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WritingApplication.class, args);
-		System.out.println("Server is running on http://localhost:8080/swagger-ui.html");
+		System.out.println("Server is running on port http://localhost:8080/swagger-ui.html");
 	}
 
 }
