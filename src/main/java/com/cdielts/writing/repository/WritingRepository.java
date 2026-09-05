@@ -7,6 +7,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface WritingRepository extends JpaRepository<Writing, UUID> {
-    List<Writing> findByUserId(UUID userId);
 
 }
