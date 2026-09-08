@@ -4,7 +4,6 @@ package com.cdielts.writing.service;
 import com.cdielts.writing.Dto.UserRequestDto;
 import com.cdielts.writing.Dto.UserResponseDto;
 import com.cdielts.writing.entity.User;
-import com.cdielts.writing.service.UserService;
 import com.cdielts.writing.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
