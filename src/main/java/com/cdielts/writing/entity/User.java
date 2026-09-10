@@ -25,7 +25,7 @@ public class User implements UserDetails {
     private String name;
 
     @Column(nullable = false, unique = true)
-    private String phoneNumber;
+    private String username;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -41,7 +41,7 @@ public class User implements UserDetails {
 
     public User(String name, String phoneNumber, Role userRole, String password) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.username = phoneNumber;
         this.userRole = userRole;
         this.password = password;
     }
@@ -63,12 +63,12 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+//    public String getUsername() {
+//        return username;
+//    }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setUsername(String phoneNumber) {
+        this.username = phoneNumber;
     }
 
     public Role getUserRole() {
@@ -105,7 +105,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return phoneNumber;
+        return username;
     }
 
     @Override
