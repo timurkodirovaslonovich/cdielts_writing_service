@@ -1,7 +1,6 @@
 package com.cdielts.writing.Dto;
 
 
-import com.cdielts.writing.entity.Role;
 import lombok.Data;
 
 @Data

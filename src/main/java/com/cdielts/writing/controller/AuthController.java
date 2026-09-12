@@ -1,6 +1,7 @@
 package com.cdielts.writing.controller;
 
 
+import com.cdielts.writing.Dto.LoginRequest;
 import com.cdielts.writing.Dto.RegisterRequest;
 import com.cdielts.writing.entity.Role;
 import com.cdielts.writing.entity.User;
@@ -10,6 +11,8 @@ import com.cdielts.writing.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,4 +49,14 @@ public class AuthController {
     //login
 
 
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
+        authManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
+        );
+
+        UserDetails user = userDetailsService.loadUserByUsername(request.getUsername());
+        String token = jwtUtil.generateToken(user);
+        return ResponseEntity.ok(token);
+    }
 }
