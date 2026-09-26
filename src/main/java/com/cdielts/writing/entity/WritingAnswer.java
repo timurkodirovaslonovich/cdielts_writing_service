@@ -26,11 +26,20 @@ public class WritingAnswer {
     @Column(name = "answer_txt", nullable = true)
     private String answerText;
 
+
+
+
+
+
     public WritingAnswer(Writing writing, User user, String answerText) {
         this.writing = writing;
         this.user = user;
         this.answerText = answerText;
     }
+
+
+
+
 
     public String getAnswerText() {
         return answerText;

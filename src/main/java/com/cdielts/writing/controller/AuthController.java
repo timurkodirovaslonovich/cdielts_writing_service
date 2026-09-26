@@ -28,7 +28,8 @@ public class AuthController {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authManager;
     private final JwtUtil jwtUtil;
-    private final CustomUserDetailsService userDetailsService;
+    private final CustomUserDetailsService customUserDetailsService;
+
 
 
     //register
@@ -47,15 +48,13 @@ public class AuthController {
 
 
     //login
-
-
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest request) {
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
         );
 
-        UserDetails user = userDetailsService.loadUserByUsername(request.getUsername());
+        UserDetails user = customUserDetailsService.loadUserByUsername(request.getUsername());
         String token = jwtUtil.generateToken(user);
         return ResponseEntity.ok(token);
     }
