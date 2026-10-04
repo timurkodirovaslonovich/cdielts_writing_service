@@ -1,7 +1,7 @@
 package com.cdielts.writing.Dto;
 
 
-import com.cdielts.writing.entity.WritingAnswer;
+import com.cdielts.writing.entity.Answer;
 import lombok.Data;
 
 import java.util.List;
@@ -11,6 +11,9 @@ public class WritingRequestDto {
 
     private final String passage1;
     private final String passage2;
-    private final List<WritingAnswer> answers;
 
+    public WritingRequestDto(String passage2, String passage1) {
+        this.passage2 = passage2;
+        this.passage1 = passage1;
+    }
 }

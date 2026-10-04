@@ -8,14 +8,14 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "writing_scores")
-public class WritingScore {
+public class Score {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
     @Column(name = "writing_score", precision = 3, scale = 1)
-    private BigDecimal writingScore;
+    private BigDecimal overall;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(
@@ -23,19 +23,19 @@ public class WritingScore {
             nullable = false,
             unique = true
     )
-    private WritingAnswer writingAnswer;
+    private Answer answer;
 
-    public WritingScore(BigDecimal writingScore, WritingAnswer writingAnswer) {
-        this.writingScore = writingScore;
-        this.writingAnswer = writingAnswer;
+    public Score(BigDecimal writingScore, Answer answer) {
+        this.overall = writingScore;
+        this.answer = answer;
     }
 
     public BigDecimal getWritingScore() {
-        return writingScore;
+        return overall;
     }
 
     public void setWritingScore(BigDecimal writingScore) {
-        this.writingScore = writingScore;
+        this.overall = writingScore;
     }
 
     public UUID getUuid() {
@@ -46,11 +46,11 @@ public class WritingScore {
         this.uuid = uuid;
     }
 
-    public WritingAnswer getWritingAnswer() {
-        return writingAnswer;
+    public Answer getWritingAnswer() {
+        return answer;
     }
 
-    public void setWritingAnswer(WritingAnswer writingAnswer) {
-        this.writingAnswer = writingAnswer;
+    public void setWritingAnswer(Answer answer) {
+        this.answer = answer;
     }
 }

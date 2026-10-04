@@ -2,7 +2,6 @@ package com.cdielts.writing.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -35,7 +34,7 @@ public class User implements UserDetails {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    private List<WritingAnswer> writingAnswers = new ArrayList<>();
+    private List<Score> scores = new ArrayList<>();
 
     public User() {}
 
@@ -88,12 +87,12 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public List<WritingAnswer> getWritingAnswers() {
-        return writingAnswers;
+    public List<Score> getWritingScores() {
+        return scores;
     }
 
-    public void setWritingAnswers(List<WritingAnswer> writingAnswers) {
-        this.writingAnswers = writingAnswers;
+    public void setWritingScores(List<Score> scores) {
+        this.scores = scores;
     }
 
     @Override

@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "writing_answer")
-public class WritingAnswer {
+public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -23,18 +23,20 @@ public class WritingAnswer {
     private User user;
 
 
-    @Column(name = "answer_txt", nullable = true)
-    private String answerText;
+    @Column(name = "answer_txt1", nullable = true)
+    private String answerText1;
+
+
+    @Column(name = "answer_txt2", nullable = true)
+    private String answerText2;
 
 
 
-
-
-
-    public WritingAnswer(Writing writing, User user, String answerText) {
+    public Answer(Writing writing, User user, String answerText1, String answerText2) {
         this.writing = writing;
         this.user = user;
-        this.answerText = answerText;
+        this.answerText1 = answerText1;
+        this.answerText2 = answerText2;
     }
 
 
@@ -42,11 +44,14 @@ public class WritingAnswer {
 
 
     public String getAnswerText() {
-        return answerText;
+        return answerText1 + answerText2;
     }
 
-    public void setAnswerText(String answerText) {
-        this.answerText = answerText;
+    public void setAnswerText1(String answerText1) {
+        this.answerText1 = answerText1;
+    }
+    public void setAnswerText2(String answerText2) {
+        this.answerText2 = answerText2;
     }
 
     public UUID getUuid() {

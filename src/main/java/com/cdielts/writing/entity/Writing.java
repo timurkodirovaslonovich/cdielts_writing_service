@@ -20,13 +20,11 @@ public class Writing {
     @Column(name = "passage_2", nullable = false)
     private String passage2;
 
-    @OneToMany(mappedBy = "writing")
-    private List<WritingAnswer> answers = new ArrayList<>();
 
-    public Writing(String passage1, String passage2, List<WritingAnswer> answers) {
+    public Writing(String passage1, String passage2) {
         this.passage1 = passage1;
         this.passage2 = passage2;
-        this.answers = answers;
+
     }
 
     public UUID getUuid() {
@@ -53,13 +51,6 @@ public class Writing {
         this.passage2 = passage2;
     }
 
-    public List<WritingAnswer> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(List<WritingAnswer> answers) {
-        this.answers = answers;
-    }
 
    
 }
