@@ -17,6 +17,20 @@ public class Score {
     @Column(name = "writing_score", precision = 3, scale = 1)
     private BigDecimal overall;
 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(
             name = "writing_answer_id",
@@ -28,6 +42,10 @@ public class Score {
     public Score(BigDecimal writingScore, Answer answer) {
         this.overall = writingScore;
         this.answer = answer;
+    }
+
+    public Score() {
+
     }
 
     public BigDecimal getWritingScore() {

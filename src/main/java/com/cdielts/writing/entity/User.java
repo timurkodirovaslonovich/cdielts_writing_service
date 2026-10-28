@@ -36,6 +36,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Score> scores = new ArrayList<>();
 
+
+
     public User() {}
 
     public User(String name, String phoneNumber, Role userRole, String password) {
