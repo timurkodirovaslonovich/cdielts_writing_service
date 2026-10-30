@@ -64,9 +64,10 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-//    public String getUsername() {
-//        return username;
-//    }
+    public String getusername() {
+     return username;
+
+}
 
     public void setUsername(String phoneNumber) {
         this.username = phoneNumber;

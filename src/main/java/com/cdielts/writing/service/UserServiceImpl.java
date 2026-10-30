@@ -32,12 +32,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto createUser(UserRequestDto request) {
-        if (userRepository.existsByUsername(request.getPhoneNumber())) {
-            throw new RuntimeException("Phone number " + request.getPhoneNumber() + " already exists");
+        if (userRepository.existsByUsername(request.getUserName())) {
+            throw new RuntimeException(request.getUserName() + " already exists");
         } else {
             User user = new User(
                     request.getName(),
-                    request.getPhoneNumber(),
+                    request.getUserName(),
                     request.getRole(),
                     request.getPassword()
             );
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
         return new  UserResponseDto(
                 user.getUuid(),
                 user.getName(),
-                user.getUsername(),
+                user.getusername(),
                 user.getUserRole()
         );
     }

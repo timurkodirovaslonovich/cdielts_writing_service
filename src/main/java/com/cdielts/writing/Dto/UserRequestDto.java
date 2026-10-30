@@ -12,15 +12,15 @@ import java.util.UUID;
 public class UserRequestDto {
     private UUID id;
     private String name;
-    private String phoneNumber;
+    private String userName;
     private Role role;
     private String password;
 
     public UserRequestDto() {}
-    public UserRequestDto(UUID id, String name, String phoneNumber, Role role, String password) {
+    public UserRequestDto(UUID id, String name, String userName, Role role, String password) {
         this.id = id;
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.userName = userName;
         this.role = role;
         this.password = password;
 
